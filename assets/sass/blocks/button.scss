@@ -1,0 +1,23 @@
+.button {
+  width: 200px;
+  min-height: 50px;
+  background: yellow;
+  border: none;
+
+  font-family:
+    'Source Sans Pro',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 19px;
+  text-transform: uppercase;
+  
+  border-radius: 15px;
+  cursor: pointer
+}

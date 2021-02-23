@@ -1,0 +1,66 @@
+html {
+  height: 100%;
+
+  font-family:
+    'Source Sans Pro',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  min-width: 320px;
+  padding: 0;
+
+  font-size: 25px;
+  line-height: 33px;
+  word-wrap: break-word;
+  letter-spacing: normal;
+  text-align: center;
+  color: #030e4eb7;
+
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-color: #888320e3;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    outline: none;
+  }
+}
+
+.layout,
+.page {
+  @include make-fade(0.3s);
+}

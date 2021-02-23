@@ -15,8 +15,14 @@ export default {
     ]
   },
 
+  loading: {
+    color: '#030e4eb7',
+    height: '3px',
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/sass/styles.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -41,5 +47,12 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: [
+      'vee-validate'
+    ],
+  },
+
+  env: {
+    commentUrl: 'https://jsonplaceholder.typicode.com/posts/1/comments',
   }
 }

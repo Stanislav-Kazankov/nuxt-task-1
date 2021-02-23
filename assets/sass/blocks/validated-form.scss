@@ -1,0 +1,215 @@
+@mixin validation-styles($color) {
+  .validated-form {
+    &__input {
+      border: 2px solid $color;
+      border-radius: 4px;
+      
+      background-color: rgba($color, 0.1);
+    }
+
+    &__screed--checkbox {
+      .validated-form__icon {
+        fill: rgba($color, 0.2);
+      }
+    }
+    
+    &__check-border {
+      stroke-width: 3px;
+      stroke: $color;
+    }
+  }
+}
+
+.validated-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 392px;
+  min-height: 405px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  
+  text-align: left;
+  font-size: 15px;
+  line-height: 15px;
+
+  background-color: #ffffff;
+  box-shadow: 0px 34px 31px -6px rgba(#c6d0d8, 0.5) inset;
+  
+  margin-left: auto;
+  margin-right: auto;
+  
+  &__field {
+    display: flex;
+    flex-direction: column;
+    width: 363px;
+    min-height: 61px;
+  }
+  
+  &__checkbox {
+    display: flex;
+    flex-direction: column;
+    width: 363px;
+    min-height: 34px;
+    
+    margin-bottom: 9px;
+  }
+  
+  &__screed {
+    display: flex;
+    flex-wrap: wrap;
+    
+    margin-bottom: 2px;
+    
+    &:not(&--checkbox) {
+      flex-direction: column;
+    }
+    
+    &--checkbox {
+      .validated-form__input {
+        @include visually-hidden();
+        
+        &:focus {
+          + .validated-form__icon {
+            .validated-form__check-border {
+              stroke-width: 3px;
+              stroke: black;
+            }
+          }
+        }
+        
+        &:not(:checked) {
+          + .validated-form__icon {
+            .validated-form__check-mark {
+              display: none;
+            }
+          }
+        }
+      }
+      
+      .validated-form__icon {
+        width: 20px;
+        height: 20px;
+        
+        stroke: #c2c2c2;
+        fill: #f9f9f9;
+        
+        border-radius: 4px;
+        
+        cursor: pointer;
+        
+        margin-right: 10px;
+      }
+      
+      .validated-form__caption {
+        width: 218px;
+        
+        margin-top: 2px;
+      }
+    }
+  }
+
+  &__input {
+    height: 44px;
+    padding-left: 14px;
+    padding-right: 14px;
+    
+    background-color: #f9f9f9;
+    border: 2px solid #e2e2e2;
+    
+    /* webkit: Safary, Chrome, Opera */
+    &::-webkit-input-placeholder {
+      font-size: 15px;
+      line-height: 15px;
+    }
+
+    /* Firefox 19+ */
+    &::-moz-placeholder {
+      font-size: 15px;
+
+      opacity: 1;
+    }
+
+    /* Firefox 19+ */
+    &:focus::-moz-placeholder {
+      font-size: 15px;
+
+      opacity: 0;
+    }
+
+    /* IE */
+    &:-ms-input-placeholder {
+      font-size: 15px;
+      line-height: 15px;
+    }
+
+    /* Edge */
+    &::-ms-input-placeholder {
+      font-size: 15px;
+      line-height: 15px;
+    }
+  }
+  
+  &__check-mark {
+    stroke: #a2a2a2;
+  }
+  
+  &__caption {
+    color: black;
+    text-decoration: underline;
+  }
+
+  &__hint {
+    font-size: 12px;
+    line-height: 12px;
+    color: red;
+  }
+  
+  &__button {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    width: 134px;
+    min-height: 45px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    font-size: 13px;
+    
+    background-color: #ff5b7e;
+    border: none;
+    border-radius: 22px;
+    
+    cursor: pointer;
+    
+    margin-bottom: 10px;
+    
+    .validated-form__caption {
+      width: 72px;
+      
+      font-weight: 700;
+      color: #ffffff;
+    }
+    
+    .validated-form__icon {
+      width: 10px;
+      height: 10px;
+      
+      stroke: #ffffff;
+    }
+  }
+}
+
+.is-valid {
+  @include validation-styles(green);
+}
+
+.is-invalid {
+  @include validation-styles(red);
+}

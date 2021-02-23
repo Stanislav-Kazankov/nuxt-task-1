@@ -1,73 +1,67 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        nuxt-task-1
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <div class="page">
+    <div class="page__centerer">
+      <div class="page__app page__app--todos">
+        <h1 class="page__h1">
+          To do list
+        </h1>
+        <control-panel />
+        <todo-list :tasks="tasks"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+  export default {
+    data() {
+      return {
+        tasks: [
+          {
+            isDone: false,
+            title: 'Сходить в кино',
+          },
+          {
+            isDone: true,
+            title: 'Погулять с собакой',
+          },
+          {
+            isDone: false,
+            title: 'Встретится с Шерлоком на Бэйкер Стрит',
+          },
+        ],
+      }
+    },
+  }
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+<style lang="scss" scoped>
+  .page__app {
+    justify-content: center;
 
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
+    text-align: left;
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
+    &--todos {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 20px;
+      padding-bottom: 35px;
+      width: 500px;
+      min-height: 323px;
 
-.links {
-  padding-top: 15px;
-}
+      font-size: 14px;
+      line-height: 16px;
+
+      border: 2px solid red;
+      border-radius: 20px;
+
+      .control-panel {
+        margin-bottom: 30px;
+      }
+
+      .todo-list {
+        margin-left: 20px;
+      }
+    }
+  }
 </style>

@@ -1,0 +1,30 @@
+.page {
+  display: grid;
+  min-height: 100%;
+
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  margin-top: -10px;
+
+  &__centerer {
+    @include make-centerer();
+  }
+
+  &__h1 {
+    display: block;
+    width: 400px;
+
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: 1px;
+
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+  &__app {
+    display: grid;
+  }
+}

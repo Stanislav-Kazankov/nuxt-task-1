@@ -1,62 +1,90 @@
 <template>
-  <div>
-    <Nuxt />
+  <div class="default">
+    <header class="default__header">
+      <div class="default__centerer">
+        <navbar :itemData="itemData"/>
+      </div>
+    </header>
+    <main class="default__main">
+      <nuxt />
+    </main>
+    <footer class="default__footer">
+      <div class="default__centerer">
+        <p class="default__p">
+          Дизайн и фронтенд данного сайта выполнены мной.
+          © Все права защищены.
+        </p>
+      </div>
+    </footer>
   </div>
 </template>
 
-<style>
-html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+<script>
+  import navbar from '@/components/navbar';
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-}
+  export default {
+    data() {
+      return {
+        itemData: [
+          {
+            url: '/',
+            caption: 'To do list',
+          },
+          {
+            url: '/fetch',
+            caption: 'Fetch',
+          },
+          {
+            url: '/vee-validate',
+            caption: 'Vee-validate',
+          },
+        ],
+      }
+    },
+    components: {
+      navbar
+    },
+  }
+</script>
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
+<style lang="scss" scoped>
+  @import "@/assets/sass/mixins.scss";
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
+  .default {
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+    min-height: 100vh;
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
+    &__centerer {
+      @include make-centerer();
+    }
+    
+    &__header {
+      @include make-gradient(
+        #a1a31a,
+        #ffffff00,
+        60%
+      );
+    }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
+    &__main {
+      @include make-gradient(
+        #ffffff00,
+        #a1a31a,
+        60%
+      );
+    }
+
+    &__footer {
+      padding-top: 30px;
+      padding-bottom: 36px;
+    }
+
+    &__p {
+      width: 500px;
+
+      font-size: 20px;
+      line-height: 26px;
+    }
+  }
 </style>
