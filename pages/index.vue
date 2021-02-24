@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <section class="page">
     <div class="page__centerer">
       <div class="page__app page__app--todos">
         <h1 class="page__h1">
@@ -9,7 +9,7 @@
         <todo-list :tasks="tasks"/>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
