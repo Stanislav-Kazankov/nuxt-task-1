@@ -6,7 +6,7 @@
       <nuxt-link
         class="navbar__link"
         :to="item.url"
-        active-class="navbar__link--active"
+        active-class="is-active"
         exact
         no-prefetch
       >
@@ -48,14 +48,14 @@
     &__link {
       border-top-left-radius: 15px;
       border-top-right-radius: 15px;
-
-      &--active {
-        @include make-gradient(
-          #ffffff00,
-          #a1a31a,
-          100%
-        );
-      }
     }
+  }
+
+  .is-active {
+    @include make-gradient(
+      #ffffff00,
+      #a1a31a,
+      100%
+    );
   }
 </style>
