@@ -8,7 +8,7 @@
         :to="item.url"
         active-class="is-active"
         exact
-        no-prefetch
+        :prefetch="false"
       >
         {{item.caption}}
       </nuxt-link>
