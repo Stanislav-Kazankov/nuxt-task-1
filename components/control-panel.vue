@@ -40,6 +40,8 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "@assets/sass/mixins.scss"
+
   .control-panel {
     display: flex;
     flex-wrap: wrap;
